@@ -28,6 +28,10 @@ var birds, bird;
 
 var boid, boids;
 
+var textureR = 1;
+var textureG = 0.007;
+var textureB = 0.007;
+
 init();
 animate();
 
@@ -65,12 +69,12 @@ function init() {
 	texture.wrapS = THREE.ClampToEdgeWrapping;
 	texture.wrapT = THREE.ClampToEdgeWrapping;
 
-	mesh = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { map: texture, color: 0xf79175, combine: 'Three.addOperation' } ) );
+	mesh = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { map: texture, combine: 'Three.addOperation' } ) );
 	scene.add( mesh );
 
-	renderer = new THREE.WebGLRenderer();
+	renderer = new THREE.WebGLRenderer({ alpha: true });
   //set bg color
-	renderer.setClearColor( 0xD8B1A6 );
+	renderer.setClearColor( 0xD8B1A6, 0.5 );
 	renderer.setPixelRatio( window.devicePixelRatio );
 	renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
 
@@ -131,7 +135,7 @@ function generateTexture( data, width, height ) {
 	canvas.height = height;
 
 	context = canvas.getContext( '2d' );
-	context.fillStyle = '#fff';
+	context.fillStyle = '#000';
 	context.fillRect( 0, 0, width, height );
 
 	image = context.getImageData( 0, 0, canvas.width, canvas.height );
@@ -146,9 +150,9 @@ function generateTexture( data, width, height ) {
 
 		shade = vector3.dot( sun );
 
-		imageData[ i ] = ( 96 + shade * 128 ) * ( 0.5 + data[ j ] * 0.007 );
-		imageData[ i + 1 ] = ( 32 + shade * 96 ) * ( 0.5 + data[ j ] * 0.007 );
-		imageData[ i + 2 ] = ( shade * 96 ) * ( 0.5 + data[ j ] * 0.007 );
+		imageData[ i ] = ( 96 + shade * 128 ) * ( 0.5 + data[ j ] * textureR );
+		imageData[ i + 1 ] = ( 32 + shade * 96 ) * ( 0.5 + data[ j ] * textureG );
+		imageData[ i + 2 ] = ( shade * 96 ) * ( 0.5 + data[ j ] * textureB );
 
 	}
 

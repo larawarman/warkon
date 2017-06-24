@@ -1,24 +1,26 @@
 body {
-  background-color: black;
+  background-color: #91C6E5;
   font-family: 'Khula', sans-serif;
 }
 p {
   padding: 0;
-  margin: 0 10px 20px 0;
+  margin: 0 10px 30px 0;
   box-sizing: border-box;
   line-height: 1.2;
 }
 a {
   text-decoration: none;
-  color: #D8B1A6;
+  color: #6C63A9;
   background: white;
   transition: all 0.3s;
 }
 a:hover {
   transition: all 0.3s;
-  color: rgba(216,177,166, 0.7);
-  background: rgba(255,255,255,0.7);
+  color: rgba(108,99,169, 0.7);
   cursor: hand;
+}
+canvas {
+  opacity: 0.5;
 }
 .link {
   text-align: center;
@@ -26,26 +28,13 @@ a:hover {
   text-shadow: none;
 }
 .highlight {
-  background: #D8B1A6;
+  background: #6C63A9;
 }
 #main-container {
   width: 100%;
   height: 100%;
   overflow: hidden;
   position: relative;
-}
-.bg-img {
-  background-image: url('../img/desert-bg.jpg');
-  background-size: cover;
-}
-#bg-vid {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
 }
 #content {
   position: fixed;
