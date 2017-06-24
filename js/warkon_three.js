@@ -44,7 +44,7 @@ function init() {
 	scene = new THREE.Scene();
   //set terrain color
 	// scene.fog = new THREE.FogExp2( 0x76ddf7, 0.0025 );
-	scene.fog = new THREE.Fog( 0x76ddf7 );
+	scene.fog = new THREE.Fog( 0xD8B1A6 );
 
 	data = generateHeight( worldWidth, worldDepth );
 
@@ -70,7 +70,7 @@ function init() {
 
 	renderer = new THREE.WebGLRenderer();
   //set bg color
-	renderer.setClearColor( 0x76ddf7 );
+	renderer.setClearColor( 0xD8B1A6 );
 	renderer.setPixelRatio( window.devicePixelRatio );
 	renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
 

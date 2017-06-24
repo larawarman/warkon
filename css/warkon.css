@@ -1,9 +1,32 @@
 body {
   background-color: black;
+  font-family: 'Khula', sans-serif;
 }
 p {
   padding: 0;
-  margin: 0;
+  margin: 0 10px 20px 0;
+  box-sizing: border-box;
+  line-height: 1.2;
+}
+a {
+  text-decoration: none;
+  color: #D8B1A6;
+  background: white;
+  transition: all 0.3s;
+}
+a:hover {
+  transition: all 0.3s;
+  color: rgba(216,177,166, 0.7);
+  background: rgba(255,255,255,0.7);
+  cursor: hand;
+}
+.link {
+  text-align: center;
+  padding-top:40px;
+  text-shadow: none;
+}
+.highlight {
+  background: #D8B1A6;
 }
 #main-container {
   width: 100%;
@@ -35,6 +58,7 @@ p {
 }
 #wordmark {
   max-width: 400px;
+  padding: 50px;
 }
 .celebration {
   width: 60vw;
@@ -43,35 +67,40 @@ p {
   max-height: 400px;
   background-color: rgba(255,255,255,0.85);
   position: absolute;
-  padding: 10px;
   display:none;
   cursor: move;
+  padding: 10px;
 }
 .celebration .title {
   display:block;
   width: 100%;
   margin-bottom: 10px;
-  font-family: 'Inconsolata', monospace;
+  font-size: 13px;
+  font-family: 'Source Code Pro', monospace;
   color: black;
 }
-.celebration .details {
-  display:block;
+.celebration .details-wrapper {
   width:100%;
   height:100%;
-  color: white;
-  text-align: center;
-  text-shadow: 1px 1px rgba(0,0,0,0.4);
   background-color: rgba(255,255,255,0);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center 30px;
 }
-.celebration#wedding .details { background-image: url('../img/wedding.jpg'); }
+.celebration .details {
+  color: white;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px rgba(53,63,61,0.2);
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.celebration#wedding .details-wrapper { background-image: url('../img/sedona.jpg'); }
 .celebration#wedding { bottom: 25vh; right: 10vw; }
 .celebration#story { bottom: 20vh; right: 25vw; }
-.celebration#orlando .details { background-image: url('../img/orlando.jpg'); }
+.celebration#orlando .details-wrapper { background-image: url('../img/orlando.jpg'); }
 .celebration#orlando { bottom: 3vh; left: 2vw; }
-.celebration#york .details { background-image: url('../img/york.jpg'); }
+.celebration#york .details-wrapper { background-image: url('../img/york.jpg'); }
 .celebration#york { bottom: 5vh; right: 30vw; }
-.celebration#brooklyn .details { background-image: url('../img/brooklyn.jpg'); }
+.celebration#brooklyn .details-wrapper { background-image: url('../img/brooklyn.jpg'); }
 .celebration#brooklyn { bottom: 1vh; right: 2vw; }

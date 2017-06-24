@@ -272,15 +272,15 @@ THREE.FirstPersonControls = function ( object, domElement ) {
 	};
 
 	var _onMouseMove = bind( this, this.onMouseMove );
-	var _onMouseDown = bind( this, this.onMouseDown );
-	var _onMouseUp = bind( this, this.onMouseUp );
+	// var _onMouseDown = bind( this, this.onMouseDown );
+	// var _onMouseUp = bind( this, this.onMouseUp );
 	var _onKeyDown = bind( this, this.onKeyDown );
 	var _onKeyUp = bind( this, this.onKeyUp );
 
 	this.domElement.addEventListener( 'contextmenu', contextmenu, false );
 	this.domElement.addEventListener( 'mousemove', _onMouseMove, false );
-	this.domElement.addEventListener( 'mousedown', _onMouseDown, false );
-	this.domElement.addEventListener( 'mouseup', _onMouseUp, false );
+	// this.domElement.addEventListener( 'mousedown', _onMouseDown, false );
+	// this.domElement.addEventListener( 'mouseup', _onMouseUp, false );
 
 	window.addEventListener( 'keydown', _onKeyDown, false );
 	window.addEventListener( 'keyup', _onKeyUp, false );
