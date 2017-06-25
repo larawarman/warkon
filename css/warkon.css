@@ -42,6 +42,7 @@ video {
 #main-container {
   height: 100vh;
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 #interactives {
   display:none;
