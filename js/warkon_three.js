@@ -37,64 +37,61 @@ animate();
 
 function init() {
 
-	container = document.getElementById( 'interactives' );
+		container = document.getElementById( 'interactives' );
 
-	camera = new THREE.PerspectiveCamera( 60, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 );
+		camera = new THREE.PerspectiveCamera( 60, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 );
 
-	controls = new THREE.FirstPersonControls( camera );
-	controls.movementSpeed = 150;
-	controls.lookSpeed = 0.007;
+		controls = new THREE.FirstPersonControls( camera );
+		controls.movementSpeed = 150;
+		controls.lookSpeed = 0.007;
 
-	scene = new THREE.Scene();
-  //set terrain color
-	// scene.fog = new THREE.FogExp2( 0x76ddf7, 0.0025 );
-	scene.fog = new THREE.Fog( 0xD8B1A6 );
+		scene = new THREE.Scene();
+		scene.fog = new THREE.Fog( 0xD8B1A6 );
 
-	data = generateHeight( worldWidth, worldDepth );
+		data = generateHeight( worldWidth, worldDepth );
 
-	camera.position.y = data[ worldHalfWidth + worldHalfDepth * worldWidth ] * 10 + 500;
+		camera.position.y = data[ worldHalfWidth + worldHalfDepth * worldWidth ] * 10 + 500;
 
-	var geometry = new THREE.PlaneBufferGeometry( 7500, 7500, worldWidth - 1, worldDepth - 1 );
-	geometry.rotateX( - Math.PI / 2 );
+		var geometry = new THREE.PlaneBufferGeometry( 7500, 7500, worldWidth - 1, worldDepth - 1 );
+		geometry.rotateX( - Math.PI / 2 );
 
-	var vertices = geometry.attributes.position.array;
+		var vertices = geometry.attributes.position.array;
 
-	for ( var i = 0, j = 0, l = vertices.length; i < l; i ++, j += 3 ) {
+		for ( var i = 0, j = 0, l = vertices.length; i < l; i ++, j += 3 ) {
 
-		vertices[ j + 1 ] = data[ i ] * 10;
+			vertices[ j + 1 ] = data[ i ] * 10;
 
-	}
+		}
 
-	texture = new THREE.CanvasTexture( generateTexture( data, worldWidth, worldDepth ) );
-	texture.wrapS = THREE.ClampToEdgeWrapping;
-	texture.wrapT = THREE.ClampToEdgeWrapping;
+		texture = new THREE.CanvasTexture( generateTexture( data, worldWidth, worldDepth ) );
+		texture.wrapS = THREE.ClampToEdgeWrapping;
+		texture.wrapT = THREE.ClampToEdgeWrapping;
 
-	mesh = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { map: texture, combine: 'Three.addOperation' } ) );
-	scene.add( mesh );
+		mesh = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { map: texture, combine: 'Three.addOperation' } ) );
+		scene.add( mesh );
 
-	renderer = new THREE.WebGLRenderer({ alpha: true });
-  //set bg color
-	renderer.setClearColor( 0xD8B1A6, 0.5 );
-	renderer.setPixelRatio( window.devicePixelRatio );
-	renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
+		renderer = new THREE.WebGLRenderer({ alpha: true });
+		renderer.setClearColor( 0xD8B1A6, 0.5 );
+		renderer.setPixelRatio( window.devicePixelRatio );
+		renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
 
-	container.innerHTML = "";
+		container.innerHTML = "";
 
-	container.appendChild( renderer.domElement );
+		container.appendChild( renderer.domElement );
 
 
-	window.addEventListener( 'resize', onWindowResize, false );
+		window.addEventListener( 'resize', onWindowResize, false );
 
 }
 
 function onWindowResize() {
 
-	camera.aspect = window.innerWidth / window.innerHeight;
-	camera.updateProjectionMatrix();
+		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.updateProjectionMatrix();
 
-	renderer.setSize( window.innerWidth, window.innerHeight );
+		renderer.setSize( window.innerWidth, window.innerHeight );
 
-	controls.handleResize();
+		controls.handleResize();
 
 }
 
