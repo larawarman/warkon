@@ -3,7 +3,6 @@ $(document).ready(function() {
   var zindex = 0
 
   function showCelebrations() {
-    console.log('showCelebrations');
     $celebrations.each(function(index) {
       $(this).delay(300*index).show(0);
     });
@@ -45,11 +44,15 @@ $(document).ready(function() {
 
   showCelebrations();
 
-  $celebrations.draggable();
+  if (window.innerWidth > 768) {
+    $celebrations.draggable();
+  }
 
   $celebrations.mousedown(function() {
-    zindex = zindex + 10;
-    $(this).css('z-index', zindex);
+    if (window.innerWidth > 768) {
+      zindex = zindex + 10;
+      $(this).css('z-index', zindex);
+    }
   });
 
   $('.reset').click(function() {

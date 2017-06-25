@@ -73,6 +73,10 @@ video {
   max-width: 400px;
   width: 90vw;
 }
+#celebrations {
+  display: flex;
+  flex-flow: column nowrap;
+}
 .celebration {
   background-color: rgba(255,255,255,0.85);
   padding: 10px;
@@ -101,10 +105,17 @@ video {
 .celebration .details p:last-child {
   padding: 0 5px 30px;
 }
-.celebration#wedding .details-wrapper { background-image: url('../img/sedona.jpg'); }
-.celebration#orlando .details-wrapper { background-image: url('../img/orlando.jpg'); }
-.celebration#york .details-wrapper { background-image: url('../img/york.jpg'); }
-.celebration#brooklyn .details-wrapper { background-image: url('../img/brooklyn.jpg'); }
+.celebration#wedding { order: 1;}
+.celebration#story { order: 2;}
+.celebration#orlando { order: 3;}
+.celebration#york { order: 4;}
+.celebration#brooklyn { order: 5;}
+
+.celebration#wedding .details-wrapper { background-image: url('../img/sedona.jpg');}
+.celebration#story { order: 2;}
+.celebration#orlando .details-wrapper { background-image: url('../img/orlando.jpg'); order: 3;}
+.celebration#york .details-wrapper { background-image: url('../img/york.jpg'); order: 4;}
+.celebration#brooklyn .details-wrapper { background-image: url('../img/brooklyn.jpg'); order: 5;}
 
 body#not-found #intro {
   text-align:center;
@@ -136,6 +147,9 @@ body#not-found #intro {
     padding: 50px;
   }
   .reset {
+    display:block;
+  }
+  #celebrations {
     display:block;
   }
   .celebration {
