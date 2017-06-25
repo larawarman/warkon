@@ -43,24 +43,35 @@ video {
   height: 100vh;
   overflow: scroll;
 }
-#interactives {
+/*#interactives {
   display:none;
-}
-.reset {
+}*/
+#intro {
   text-align: center;
+  margin-top: 40px;
+}
+#intro p {
+  text-align: center;
+  margin-top: 40px;
+}
+#intro a, #intro .reset {
+  cursor: pointer;
+  font-size: 13px;
+  background: transparent;
   color: white;
   text-decoration: underline;
-  font-size: 13px;
-  cursor: hand;
   transition: color 0.3s;
 }
-.reset:hover {
+#intro a:hover, #intro .reset:hover {
   color: black;
   transition: color 0.3s;
 }
+.reset {
+  display:none;
+}
 #wordmark {
-  max-width: 90vw;
-  padding: 5vw;
+  max-width: 400px;
+  width: 90vw;
 }
 .celebration {
   background-color: rgba(255,255,255,0.85);
@@ -95,15 +106,20 @@ video {
 .celebration#york .details-wrapper { background-image: url('../img/york.jpg'); }
 .celebration#brooklyn .details-wrapper { background-image: url('../img/brooklyn.jpg'); }
 
+body#not-found #intro {
+  text-align:center;
+  color: white;
+}
+
 @media (min-width: 769px) {
   #main-container {
     width: 100%;
     overflow: hidden;
     position: relative;
   }
-  #interactives {
+  /*#interactives {
     display:block;
-  }
+  }*/
   #content {
     position: fixed;
     width: 100%;
@@ -113,9 +129,14 @@ video {
     right: 0;
     bottom: 0;
   }
+  #intro {
+    text-align: left;
+  }
   #wordmark {
-    max-width: 400px;
     padding: 50px;
+  }
+  .reset {
+    display:block;
   }
   .celebration {
     width: 60vw;
@@ -138,11 +159,11 @@ video {
     transform: translateY(-50%);
     padding: 20px;
   }
-  .celebration#wedding { bottom: 25vh; right: 10vw; }
-  .celebration#story { bottom: 20vh; right: 25vw; }
-  .celebration#orlando { bottom: 3vh; left: 2vw; }
-  .celebration#york { bottom: 5vh; right: 30vw; }
-  .celebration#brooklyn { bottom: 1vh; right: 2vw; }
+  .celebration#wedding { top: 5%; left: 50%; }
+  .celebration#story { top: 50%; left: 2%; }
+  .celebration#orlando { top: 20%; left: 30%; }
+  .celebration#york { top: 45%; left: 35%; }
+  .celebration#brooklyn { top: 53%; left: 70%; }
   video {
     height: auto;
     max-height: calc(100% - 35px);
