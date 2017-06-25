@@ -1,13 +1,6 @@
 $(document).ready(function() {
   $celebrations = $('.celebration');
-  var zindex = 0;
-
-  $celebrations.draggable();
-
-  $celebrations.mousedown(function() {
-    zindex = zindex + 10;
-    $(this).css('z-index', zindex);
-  });
+  var zindex = 0
 
   function showCelebrations() {
     console.log('showCelebrations');
@@ -16,48 +9,49 @@ $(document).ready(function() {
     });
   }
   function resetCSS(param, callback) {
-    console.log('resetCSS');
+    var w = window.innerWidth;
+    var h = window.innerHeight;
     $('.celebration#wedding').css({
-      'bottom':'25vh',
-      'right':'10vw',
-      'left':'auto',
-      'top':'auto',
+      'left': (w * 0.5) + 'px',
+      'top': (h * 0.05) + 'px',
       'z-index':'auto'
     });
     $('.celebration#story').css({
-      'bottom':'20vh',
-      'right':'25vw',
-      'left':'auto',
-      'top':'auto',
+      'left': (w * 0.02) + 'px',
+      'top': (h * 0.5) + 'px',
       'z-index':'auto'
     });
     $('.celebration#orlando').css({
-      'bottom':'3vh',
-      'left':'2vw',
-      'right':'auto',
-      'top':'auto',
+      'left': (w * 0.3) + 'px',
+      'top': (h * 0.2) + 'px',
       'z-index':'auto'
     });
     $('.celebration#york').css({
-      'bottom':'5vh',
-      'right':'30vw',
-      'left':'auto',
-      'top':'auto',
+      'left': (w * 0.35) + 'px',
+      'top': (h * 0.45) + 'px',
       'z-index':'auto'
     });
     $('.celebration#brooklyn').css({
-      'bottom':'1vh',
-      'right':'2vw',
-      'left':'auto',
-      'top':'auto',
+      'left': (w * 0.7) + 'px',
+      'top': (h * 0.53) + 'px',
       'z-index':'auto'
     });
   }
-  showCelebrations();
+
   function reset(param, callback) {
     $celebrations.hide();
     resetCSS();
   }
+
+  showCelebrations();
+
+  $celebrations.draggable();
+
+  $celebrations.mousedown(function() {
+    zindex = zindex + 10;
+    $(this).css('z-index', zindex);
+  });
+
   $('.reset').click(function() {
     $.when( reset() ).done(function() {
       showCelebrations();
