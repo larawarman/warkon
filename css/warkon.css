@@ -11,13 +11,23 @@ p {
   line-height: 1.2;
 }
 a {
+  color: black;
+  background-color: none;
+  font-style: italic;
+  transition: background-color 0.3s;
+}
+a:hover {
+  background-color: white;
+  transition: background-color 0.3s;
+}
+a.blocky {
   text-decoration: none;
   text-shadow:none;
   color: #6F3EC8;
   background: white;
   transition: all 0.3s;
 }
-a:hover {
+a.blocky:hover {
   transition: all 0.3s;
   color: rgba(111,62,200, 0.7);
   cursor: hand;
